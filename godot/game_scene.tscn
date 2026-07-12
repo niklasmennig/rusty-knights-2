@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b8v058s814fpt"]
+
+[ext_resource type="Script" uid="uid://dqty3aqnx7k6x" path="res://game_scene.gd" id="1_mlf6e"]
+[ext_resource type="TileSet" uid="uid://dqv8tgyko1eyl" path="res://map_tile_set.tres" id="2_po0ka"]
+
+[node name="GameScene" type="Node" unique_id=195861143]
+script = ExtResource("1_mlf6e")
+
+[node name="RoguelikeWorld" type="RoguelikeWorld" parent="." unique_id=1463069033]
+unique_name_in_owner = true
+
+[node name="VisualRoot" type="Node2D" parent="." unique_id=946108722]
+
+[node name="VisualEntities" type="Node2D" parent="VisualRoot" unique_id=2043423829]
+unique_name_in_owner = true
+
+[node name="TileMap" type="TileMapLayer" parent="VisualRoot" unique_id=2038804169]
+unique_name_in_owner = true
+tile_set = ExtResource("2_po0ka")
+
+[node name="Camera2D" type="Camera2D" parent="VisualRoot" unique_id=621874833]
+zoom = Vector2(0.5, 0.5)
+
+[connection signal="tiles_type_changed" from="RoguelikeWorld" to="." method="_on_roguelike_world_tiles_type_changed"]
+[connection signal="visual_entity_created" from="RoguelikeWorld" to="." method="_on_roguelike_world_visual_entity_created"]
+[connection signal="visual_entity_moved" from="RoguelikeWorld" to="." method="_on_roguelike_world_visual_entity_moved"]

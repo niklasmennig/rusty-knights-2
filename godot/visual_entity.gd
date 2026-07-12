@@ -1,0 +1,2 @@
+class_name VisualEntity
+extends Node2D
